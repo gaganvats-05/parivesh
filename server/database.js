@@ -1,7 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 function DbConnect() {
-  const URL = process.env.DB_URL;
+  const URL =
+    "mongodb+srv://voidhack:voidhack@cluster0.rlwmp.mongodb.net/voidhack?retryWrites=true&w=majority";
 
   // Database connection
   mongoose.connect(URL, {
@@ -9,9 +10,9 @@ function DbConnect() {
     useUnifiedTopology: true,
   });
   const db = mongoose.connection;
-  db.on('error', console.error.bind(console, 'connection error:'));
-  db.once('open', () => {
-    console.log('DB connected...');
+  db.on("error", console.error.bind(console, "connection error:"));
+  db.once("open", () => {
+    console.log("DB connected...");
   });
 }
 

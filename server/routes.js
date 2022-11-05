@@ -6,12 +6,11 @@ const {
   getProduct,
   companyProduct,
 } = require("./controllers/product-controller");
-const { signUp, login } = require("./controllers/auth-controller");
+const { register } = require("./controllers/auth-controller");
 
-router.post("/api/register", signUp);
-router.post("/api/login", login);
-router.post("/api/createProduct", auth, createProduct);
-router.get("/api/getProd/:id", auth, getProduct);
-router.get("/api/companyProd/:email", auth, companyProduct);
+router.post("/api/register", register);
+router.post("/api/createProduct", createProduct);
+router.get("/api/getProd/:id", getProduct);
+router.get("/api/companyProd/:email", companyProduct);
 
 module.exports = router;
