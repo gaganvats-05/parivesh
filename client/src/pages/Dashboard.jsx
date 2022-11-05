@@ -61,10 +61,18 @@ const Dashboard = () => {
                 <QRmodal setOpenModal={setQRModal} value={value} />
             )}
             <div
-            // className="bg-[url('/assets/wallpaper1.jpg')] min-h-screen"
+            className="relative bg-[#F9F9F9] h-full w-full min-h-screen"
             // style={{ backgroundSize: "cover" }}
             >
-                <nav className="nav flex justify-between items-center px-4 bg-[rgba(0,0,0,0.3)] backdrop-blur-lg">
+
+            <div className="absolute flex items-center justify-center w-full h-full">
+                <img 
+                    src="/logo.png"
+                    className= "m-auto opacity-10"
+                />
+            </div>
+
+                <nav className="nav flex justify-between items-center px-4 backdrop-blur-lg">
                     <div className="flex flex-[0.5] justify-start w-full">
                         <img
                             src={"/logo.png"}
@@ -94,10 +102,11 @@ const Dashboard = () => {
                         </button>
                     </div>
                 </nav>
-                <div className="products__container">
-                    <h1 className="heading text-center font-bold italic text-4xl p-4 pb-0 text-white">
+                <div className="flex flex-col w-full h-full">
+                    <h1 className="heading text-center font-bold text-4xl p-4 pb-0 text-slate-800">
                         Products
                     </h1>
+
                     <div className="flex flex-row items-center justify-evenly flex-wrap mt-8 p-4">
                         {products.map((product) => {
                             return (
@@ -149,15 +158,20 @@ const Dashboard = () => {
                             );
                         })}
                         {/* Add new product button */}
-                        <div
-                            className="flex justify-center items-center backdrop-blur-[128px] max-w-[400px] min-w-[300px] w-full h-full min-h-[370px] bg-[rgba(0,0,0,0.25)] border-dashed border-white border cursor-pointer my-4"
-                            onClick={() => setShowModal((prev) => !prev)}
-                        >
-                            <div className="rounded-lg flex flex-col items-center justify-center w-full h-full !text-white text-2xl">
-                                Add New Product
-                                <GrAdd className="text-white bg-[#fff] rounded-full text-3xl my-2" />
+                        {
+                            /* 
+                            <div
+                                className="flex justify-center items-center backdrop-blur-[128px] max-w-[400px] min-w-[300px] w-full h-full min-h-[370px] bg-[rgba(0,0,0,0.25)] border-dashed border-white border cursor-pointer my-4"
+                                onClick={() => setShowModal((prev) => !prev)}
+                            >
+                                <div className="rounded-lg flex flex-col items-center justify-center w-full h-full !text-white text-2xl">
+                                    Add New Product
+                                    <GrAdd className="text-white bg-[#fff] rounded-full text-3xl my-2" />
+                                </div>
                             </div>
-                        </div>
+                            
+                            */
+                        }
                     </div>
                 </div>
             </div>
