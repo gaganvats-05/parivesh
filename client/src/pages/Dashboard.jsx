@@ -47,9 +47,9 @@ const Dashboard = () => {
         }
     }, [email]);
 
-    if (!isAuthenticated) {
-        navigate("/");
-    }
+    // if (!isAuthenticated) {
+    //     navigate("/");
+    // }
 
     return (
         <>
@@ -102,7 +102,7 @@ const Dashboard = () => {
                         {products.map((product) => {
                             return (
                                 <div
-                                    className="flex justify-center rounded-[1rem] overflow-hidden max-w-[400px] min-w-[300px] w-full h-full my-4"
+                                    className="flex flex-wrap justify-center rounded-[1rem] overflow-hidden max-w-[200px] min-w-[150px] w-full h-full my-4"
                                     key={product._id}
                                 >
                                     <div className="max-w-sm w-full">
