@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import ProductOne from './components/ProductOne';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/product/:pid" element={<ProductOne />} />
       </Routes>
     </BrowserRouter>
   );

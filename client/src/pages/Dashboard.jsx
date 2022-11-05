@@ -1,25 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { GrAdd } from 'react-icons/gr';
-import Modal from '../components/Modal';
-import QRmodal from '../components/QRmodal';
-import { companyProduct } from '../api';
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { GrAdd } from "react-icons/gr";
+import Modal from "../components/Modal";
+import QRmodal from "../components/QRmodal";
+import { companyProduct } from "../api";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Dashboard = () => {
-  const URL = import.meta.env.VITE_BACKEND_BASE || 'http://localhost:5500';
+  const URL = import.meta.env.VITE_BACKEND_BASE || "http://localhost:5500";
+  const { logout, user } = useAuth0();
 
   const [showModal, setShowModal] = useState(false);
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [products, setProducts] = useState([]);
   const [qrModal, setQRModal] = useState(false);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
     try {
       localStorage.clear();
-      navigate('/login');
+      const logoutUser = () => {
+        logout({ returnTo: window.location.origin });
+      };
+      logoutUser();
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -27,7 +32,8 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (user) {
-      setEmail(user.result.email);
+      console.log("user", user);
+      setEmail(user.email);
     }
   }, [user]);
 
@@ -53,10 +59,10 @@ const Dashboard = () => {
         <nav className="nav flex justify-between items-center px-4 bg-[rgba(0,0,0,0.3)] backdrop-blur-lg">
           <div className="flex flex-[0.5] justify-start w-full">
             <img
-              src={'/logo.png'}
+              src={"/logo.png"}
               alt="icon"
               className="w-[4rem] h-[4rem] cursor-pointer"
-              onClick={() => navigate('/')}
+              onClick={() => navigate("/")}
             />
           </div>
           <div className="flex flex-[0.5] flex-row justify-end space-x-3">
@@ -64,7 +70,7 @@ const Dashboard = () => {
               type="button"
               data-mdb-ripple="true"
               data-mdb-ripple-color="light"
-              onClick={() => navigate('/training')}
+              onClick={() => navigate("/training")}
               className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             >
               Training
