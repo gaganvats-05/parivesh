@@ -17,7 +17,7 @@ const HeroAssistance = () => {
                         MISSION
                     </div>
                     <p className="font-normal sm:text-sm text-[0.7rem] sm:ml-2 ml-1">
-                        Our goal is to set the standard for excellence in waste
+                        Our goal is to set the standard for excellence in healthcare waste
                         management across the country by collaborating with
                         public agencies, businesses, and citizens.
                     </p>
@@ -28,8 +28,8 @@ const HeroAssistance = () => {
                         VISION
                     </div>
                     <p className="font-normal sm:text-sm text-[0.7rem] sm:ml-2 ml-1">
-                        Our goal is to see a society where trash is correctly
-                        managed, resulting in a cleaner environment, better
+                        Our goal is to see a society where healthcare waste is correctly
+                        managed, resulting in a better environment, better
                         health, and safer conditions for all forms of life.
                     </p>
                 </div>
@@ -39,3 +39,4 @@ const HeroAssistance = () => {
 };
 
 export default HeroAssistance;
+
