@@ -94,7 +94,7 @@ const Modal = ({ onClose }) => {
     return (
         <>
             <div
-                className="fixed top-0 left-0 bg-[rgba(0,0,0,0.6)] w-screen h-screen"
+                className="fixed top-0 left-0 bg-[rgba(0,0,0,0.6)] w-screen h-screen z-[100]"
                 onClick={onClose}
             />
             <div className="fixed top-0 bottom-0 left-0 right-0 min-w-[400px] max-w-[500px] h-[500px] w-full bg-[#f5f5f5] z-[999] m-auto text-black shadow-lg rounded-lg p-4">

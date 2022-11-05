@@ -47,9 +47,9 @@ const Dashboard = () => {
         }
     }, [email]);
 
-    if (!isAuthenticated) {
-        navigate("/");
-    }
+    // if (!isAuthenticated) {
+    //     navigate("/");
+    // }
 
     return (
         <>
@@ -60,22 +60,20 @@ const Dashboard = () => {
             {qrModal === true && (
                 <QRmodal setOpenModal={setQRModal} value={value} />
             )}
-            <div
-            className="relative bg-[#F9F9F9] h-full w-full min-h-screen"
-            // style={{ backgroundSize: "cover" }}
-            >
+            <div className="relative bg-[#F9F9F9] h-full w-full min-h-screen">
+                <div className="absolute flex items-center justify-end w-full h-full p-4 pb-0">
+                    <img
+                        src="/logo.png"
+                        height="300px"
+                        width="300px"
+                        className="mx-auto opacity-10 pt-8"
+                    />
+                </div>
 
-            <div className="absolute flex items-center justify-center w-full h-full">
-                <img 
-                    src="/logo.png"
-                    className= "m-auto opacity-10"
-                />
-            </div>
-
-                <nav className="nav flex justify-between items-center px-4 backdrop-blur-lg">
+                <nav className="nav flex justify-between items-center px-4 backdrop-blur-lg p-4 pb-0">
                     <div className="flex flex-[0.5] justify-start w-full">
                         <img
-                            src={"/logo.png"}
+                            src="/logo.png"
                             alt="icon"
                             className="w-[4rem] h-[4rem] cursor-pointer"
                             onClick={() => navigate("/")}
@@ -87,7 +85,7 @@ const Dashboard = () => {
                             data-mdb-ripple="true"
                             data-mdb-ripple-color="light"
                             onClick={() => navigate("/training")}
-                            className="flex items-center justify-center sm:w-24 py-2 border-none bg-black font-medium text-white sm:text-sm text-xl cursor-pointer shadow-lg rounded-[5px] active:shadow-lg transition duration-150 ease-in-out"
+                            className="flex items-center justify-center w-24 py-2 border-none bg-black font-medium text-white text-sm cursor-pointer shadow-lg rounded-[5px] active:shadow-lg transition duration-150 ease-in-out"
                         >
                             Training
                         </button>
@@ -96,16 +94,30 @@ const Dashboard = () => {
                             data-mdb-ripple="true"
                             data-mdb-ripple-color="light"
                             onClick={handleSignOut}
-                            className="flex items-center justify-center sm:w-24 py-2 border-none bg-black font-medium text-white sm:text-sm text-xl cursor-pointer shadow-lg rounded-[5px] active:shadow-lg transition duration-150 ease-in-out"
+                            className="flex items-center justify-center w-24 py-2 border-none bg-black font-medium text-white text-sm cursor-pointer shadow-lg rounded-[5px] active:shadow-lg transition duration-150 ease-in-out"
                         >
                             Logout
                         </button>
                     </div>
                 </nav>
                 <div className="flex flex-col w-full h-full">
-                    <h1 className="heading text-center font-bold text-4xl p-4 pb-0 text-slate-800">
+                    <h1 className="heading text-center font-semibold md:text-5xl sm:text-4xl text-3xl text-slate-800">
                         Products
                     </h1>
+
+                    <div className="flex flex-col items-center justify-center z-50 p-2">
+                        <input
+                            type="text"
+                            className="flex max-w-sm w-full mx-auto p-2 border-2 rounded-md mb-4 mt-2 bg-[#f5f5f5] outline-slate-400"
+                            placeholder="Search.."
+                        />
+                        <button
+                            className="bg-black text-white py-[0.4rem] px-2 rounded-sm w-[100px] cursor-pointer"
+                            onClick={() => setShowModal((prev) => !prev)}
+                        >
+                            Add
+                        </button>
+                    </div>
 
                     <div className="flex flex-row items-center justify-evenly flex-wrap mt-8 p-4">
                         {products.map((product) => {
@@ -157,21 +169,6 @@ const Dashboard = () => {
                                 </div>
                             );
                         })}
-                        {/* Add new product button */}
-                        {
-                            /* 
-                            <div
-                                className="flex justify-center items-center backdrop-blur-[128px] max-w-[400px] min-w-[300px] w-full h-full min-h-[370px] bg-[rgba(0,0,0,0.25)] border-dashed border-white border cursor-pointer my-4"
-                                onClick={() => setShowModal((prev) => !prev)}
-                            >
-                                <div className="rounded-lg flex flex-col items-center justify-center w-full h-full !text-white text-2xl">
-                                    Add New Product
-                                    <GrAdd className="text-white bg-[#fff] rounded-full text-3xl my-2" />
-                                </div>
-                            </div>
-                            
-                            */
-                        }
                     </div>
                 </div>
             </div>
