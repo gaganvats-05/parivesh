@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 const SolutionCard = ({ imgURL, heading, about }) => {
     return (
         <div
-            className="flex flex-col w-[320px] mx-auto items-center justify-center h-[480px] py-4"
+            className="flex flex-col w-[320px] mx-auto items-center justify-center h-[450px] py-4"
             style={{
                 borderTopLeftRadius: "150px",
                 borderTopRightRadius: "150px",
@@ -29,21 +29,21 @@ const SolutionCard = ({ imgURL, heading, about }) => {
 const SolutionData = [
     {
         imgURL: "/eWaste.png",
-        heading: "E-Waste Management",
-        about: "Electronic waste (e-waste) is the fastest growing form of domestic waste globally, with around 150 million metric tones being produced in 2021 alone, of which only 25% was recycled.",
-        category: "e-waste",
+        heading: "Production",
+        about: "Parivesh lets the manufacturers mark their product to classify in type of waste using unique QR codes for having information about the product and its right disposal method.",
+        route: "Get Started",
     },
     {
         imgURL: "/plasticWaste.png",
-        heading: "Plastic Waste Management",
-        about: "The world produced 367 million metric tons of plastic waste, a number that is set to exponentially increase in the coming years. Efforts to manage and dispose of the existing waste is crucial to address the plastic crisis.",
-        category: "plastic-waste",
+        heading: "Training Usage",
+        about: "Parivesh lets small clinics and hospital to gain access to staff training modules to ensure better HCW management during usage of such items.",
+        route: "Start Training",
     },
     {
         imgURL: "/bioMedicalWaste.png",
-        heading: "Bio Medical Waste Management",
-        about: "0.5 kg of healthcare waste(HCW) per bed per day is produced in hospitals, while 80% of this waste is potentially harmless but the other 20% can create serious health threats to health workers and communities if not disposed of properly.",
-        category: "bio-medical-waste",
+        heading: "Disposal",
+        about: "Parivesh let user classify health care waste into five categories through our ML model and QR Code to provide user an optimal dissposal method of the waste.",
+        route: "Classify",
     },
 ];
 
@@ -76,14 +76,14 @@ const SolutionSection = () => {
                             />
 
                             <button
-                                className="bg-black mx-auto flex items-center justify-center w-[325px] py-2 border-2 font-medium text-base cursor-pointer shadow-lg rounded-[5px] text-white my-2"
+                                className="bg-black mx-auto flex items-center justify-center w-[325px] py-2 border-2 font-medium text-base cursor-pointer shadow-lg rounded-[5px] text-white my-3"
                                 onClick={() =>
                                     navigate(
                                         `/scanImage?category=${individualData?.category}`
                                     )
                                 }
                             >
-                                classify
+                                {individualData?.route}
                             </button>
                         </div>
                     );
