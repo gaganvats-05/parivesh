@@ -47,9 +47,9 @@ const Dashboard = () => {
         }
     }, [email]);
 
-    // if (!isAuthenticated) {
-    //     navigate("/");
-    // }
+    if (!isAuthenticated) {
+        navigate("/");
+    }
 
     return (
         <>
