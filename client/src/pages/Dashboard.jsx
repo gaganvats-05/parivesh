@@ -8,7 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Dashboard = () => {
   const URL = import.meta.env.VITE_BACKEND_BASE || "http://localhost:5500";
-  const { logout, user } = useAuth0();
+  const { isAuthenticated, logout, user } = useAuth0();
 
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
@@ -46,6 +46,10 @@ const Dashboard = () => {
       fetchData();
     }
   }, [email]);
+
+  if (!isAuthenticated) {
+    navigate("/");
+  }
 
   return (
     <>
