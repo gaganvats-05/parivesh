@@ -17,7 +17,7 @@
   top: 15px;
   left: 0;
   right: 0;
-  z-index: 60;
+  z-index: 50;
   height: 100%;
   width: 100%;
   transform: scale(0.9) translateZ(0);

@@ -4,6 +4,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import ProductOne from './components/ProductOne';
+import ScanImage from './pages/ScanImage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/product/:pid" element={<ProductOne />} />
+        <Route path="/scanimage" element={<ScanImage />} />
       </Routes>
     </BrowserRouter>
   );

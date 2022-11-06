@@ -119,11 +119,10 @@ const Dashboard = () => {
           </h1>
 
           <div className="flex flex-col items-center justify-center z-50 p-2">
-            <input
+          <input
               type="text"
               onChange={(event) => handleSearch(event)}
-              className="box"
-              // className="flex max-w-sm w-full mx-auto p-2 border-2 rounded-md mb-4 mt-2 bg-[#f5f5f5] outline-slate-400"
+              className="flex max-w-sm w-full mx-auto p-2 border-2 rounded-md mb-4 mt-2 bg-[#f5f5f5] outline-slate-400"
               placeholder="Search.."
             />
             <button
