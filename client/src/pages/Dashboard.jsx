@@ -5,6 +5,7 @@ import Modal from "../components/Modal";
 import QRmodal from "../components/QRmodal";
 import { companyProduct } from "../api";
 import { useAuth0 } from "@auth0/auth0-react";
+// import "./Dashboard.css";
 
 const Dashboard = () => {
   const URL = import.meta.env.VITE_BACKEND_BASE || "http://localhost:5500";
@@ -15,6 +16,7 @@ const Dashboard = () => {
   const [products, setProducts] = useState([]);
   const [qrModal, setQRModal] = useState(false);
   const [value, setValue] = useState("");
+  const [productList, setProductList] = useState([]);
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
@@ -42,6 +44,7 @@ const Dashboard = () => {
       const fetchData = async () => {
         const { data } = await companyProduct(email);
         setProducts(data.products);
+        setProductList(data.products);
       };
       fetchData();
     }
@@ -50,6 +53,20 @@ const Dashboard = () => {
   if (!isAuthenticated) {
     navigate("/");
   }
+
+  const handleSearch = (event) => {
+    let value = event.target.value.toLowerCase();
+
+    if (value.length === 0) {
+      setProducts(productList);
+      return;
+    }
+    let result = [];
+    result = products.filter((data) => {
+      return data.name.search(value) !== -1;
+    });
+    setProducts(result);
+  };
 
   return (
     <>
@@ -104,6 +121,7 @@ const Dashboard = () => {
           <div className="flex flex-col items-center justify-center z-50 p-2">
             <input
               type="text"
+              onChange={(event) => handleSearch(event)}
               className="flex max-w-sm w-full mx-auto p-2 border-2 rounded-md mb-4 mt-2 bg-[#f5f5f5] outline-slate-400"
               placeholder="Search.."
             />
