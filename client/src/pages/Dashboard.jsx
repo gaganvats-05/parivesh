@@ -5,7 +5,7 @@ import Modal from "../components/Modal";
 import QRmodal from "../components/QRmodal";
 import { companyProduct } from "../api";
 import { useAuth0 } from "@auth0/auth0-react";
-// import "./Dashboard.css";
+import "./Dashboard.css";
 
 const Dashboard = () => {
   const URL = import.meta.env.VITE_BACKEND_BASE || "http://localhost:5500";
@@ -122,7 +122,8 @@ const Dashboard = () => {
             <input
               type="text"
               onChange={(event) => handleSearch(event)}
-              className="flex max-w-sm w-full mx-auto p-2 border-2 rounded-md mb-4 mt-2 bg-[#f5f5f5] outline-slate-400"
+              className="box"
+              // className="flex max-w-sm w-full mx-auto p-2 border-2 rounded-md mb-4 mt-2 bg-[#f5f5f5] outline-slate-400"
               placeholder="Search.."
             />
             <button

@@ -1,56 +1,58 @@
-a {
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 60px;
-  text-align: center;
-  line-height: 60px;
-  color: #fff;
-  font-size: 24px;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-family: sans-serif;
-  box-sizing: border-box;
+/* className="flex max-w-sm w-full mx-auto p-2 border-2 rounded-md mb-4 mt-2 bg-[#f5f5f5] outline-slate-400" */
+.box {
+  background: #f5f5f5;
+  flex-direction: row;
+  max-width: 648px;
+  width: 100%;
+  border: 2px solid;
+  padding: 16px;
+  margin-bottom: 20px;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.01);
+}
+.box::after {
+  position: absolute;
+  content: "";
+  top: 15px;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  height: 100%;
+  width: 100%;
+  transform: scale(0.9) translateZ(0);
+  filter: blur(15px);
   background: linear-gradient(
-    90deg,
-    yellow,
-    orange,
-    red,
-    violet,
-    purple,
-    blue,
-    yellow
+    to left,
+    #ff5770,
+    #e4428d,
+    #c42da8,
+    #9e16c3,
+    #6501de,
+    #9e16c3,
+    #c42da8,
+    #e4428d,
+    #ff5770
   );
-  background-size: 400%;
-  border-radius: 30px;
-  z-index: 1;
+  background-size: 200% 200%;
+  -webkit-animation: animateGlow 1.25s linear infinite;
+  animation: animateGlow 1.25s linear infinite;
 }
-a:hover {
-  animation: animate 8s linear infinite;
-}
-@keyframes animate {
+
+@-webkit-keyframes animateGlow {
   0% {
-    background-position: 0%;
+    background-position: 0% 50%;
   }
   100% {
-    background-position: 400%;
+    background-position: 200% 50%;
   }
 }
-a:before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  z-index: -1;
-  background: linear-gradient(45deg, #f15523, #ef3224, #7c3697);
-  background-size: 400%;
-  border-radius: 40px;
-  opacity: 0;
-  transition: 0.5%;
-}
-a:hover:before {
-  filter: blur(20px);
-  opacity: 1;
-  animation: animate 8s linear infinite;
+
+@keyframes animateGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
 }
