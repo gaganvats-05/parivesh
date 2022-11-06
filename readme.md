@@ -51,7 +51,7 @@ Parivesh is a three tier solution for the problem of healthcare waste management
 - For ML model we used Python and Tensorflow.
 - Deployement was done in Render.
 
-## Whats next for Prabandhak
+## Whats next for Parivesh
 
 - implement custom testing modules for hospitals to ensure training of medical staff.
 - extend support from QR codes to BarCodes.
