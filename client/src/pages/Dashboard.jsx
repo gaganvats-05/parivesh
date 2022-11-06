@@ -158,7 +158,8 @@ const Dashboard = () => {
                     <button
                       onClick={() => {
                         setValue(
-                          `http://localhost:5173/product/${product._id}`
+                          `
+                          https://parivesh.vercel.app/product/${product._id}`
                         );
                         setQRModal(true);
                       }}
