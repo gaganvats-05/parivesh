@@ -30,18 +30,21 @@ const SolutionData = [
     {
         imgURL: "/eWaste.png",
         heading: "Production",
+        redirectUrl: "login",
         about: "Parivesh lets the manufacturers mark their product to classify in type of waste using unique QR codes for having information about the product and its right disposal method.",
         route: "Get Started",
     },
     {
         imgURL: "/plasticWaste.png",
         heading: "Training Usage",
+        redirectUrl: "training",
         about: "Parivesh lets small clinics and hospital to gain access to staff training modules to ensure better HCW management during usage of such items.",
         route: "Start Training",
     },
     {
         imgURL: "/bioMedicalWaste.png",
         heading: "Disposal",
+        redirectUrl: "scanimage",
         about: "Parivesh let user classify health care waste into five categories through our ML model and QR Code to provide user an optimal dissposal method of the waste.",
         route: "Classify",
     },
@@ -79,7 +82,7 @@ const SolutionSection = () => {
                                 className="bg-black mx-auto flex items-center justify-center w-[325px] py-2 border-2 font-medium text-base cursor-pointer shadow-lg rounded-[5px] text-white my-3"
                                 onClick={() =>
                                     navigate(
-                                        `/scanImage?category=${individualData?.category}`
+                                        `/${individualData.redirectUrl}`
                                     )
                                 }
                             >
