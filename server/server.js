@@ -1,8 +1,10 @@
 const express = require("express");
-const app = express();
-const router = require("./routes");
 
+const router = require("./routes");
 const DBConnect = require("./database");
+
+const app = express();
+
 
 app.use(express.json({ limit: "8mb" }));
 
@@ -24,6 +26,7 @@ app.use(function (req, res, next) {
 app.use(router);
 
 const port = process.env.PORT || 5500;
+
 DBConnect();
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
