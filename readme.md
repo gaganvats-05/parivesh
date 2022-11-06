@@ -1,4 +1,4 @@
-![banner]()
+![banner](https://socialify.git.ci/gaganvats-05/parivesh/image?description=1&descriptionEditable=A%20three%20tier%20solution%20for%20Bio-Medical%20Waste%20Management.&logo=https%3A%2F%2Fres.cloudinary.com%2Fdgg6izgtw%2Fimage%2Fupload%2Fv1667716268%2Fhackcbs%2Fim2fsiy41o8tnxmkjj0n.png&name=1&theme=Dark)
 
 # PARIVESH (परिवेश)
 
