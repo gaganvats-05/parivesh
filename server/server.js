@@ -1,10 +1,11 @@
+require('dotenv').config();
+
 const express = require("express");
 
 const router = require("./routes");
 const DBConnect = require("./database");
 
 const app = express();
-
 
 app.use(express.json({ limit: "8mb" }));
 
