@@ -70,7 +70,7 @@ const Dashboard = () => {
   return (
     <>
       {showModal && <Modal onClose={() => setShowModal((prev) => !prev)} />}
-
+      {qrModal === true && <QRmodal setOpenModal={setQRModal} value={value} />}
       <nav className="nav flex justify-between items-center px-4 backdrop-blur-lg p-4 pb-0">
         <div className="flex flex-[0.5] justify-start w-full">
           <img
@@ -157,8 +157,9 @@ const Dashboard = () => {
                     </NavLink>
                     <button
                       onClick={() => {
-                        setValue();
-                        `https://parivesh.vercel.app/product/${product._id}`;
+                        setValue(
+                          `http://localhost:5173/product/${product._id}`
+                        );
                         setQRModal(true);
                       }}
                       type="button"
