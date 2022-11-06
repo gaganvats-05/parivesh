@@ -61,7 +61,7 @@ Parivesh is a three tier solution for the problem of healthcare waste management
 
 Contributions are always welcome! 🤩
 
-See [`contributing.md`](https://github.com/Im-Abhi/BU-Hacks/blob/master/Contributing.md) for ways to get started if you're interested in helping towards making the repository better!
+See [`contributing.md`](https://github.com/gaganvats-05/parivesh/blob/main/Contributing.md) for ways to get started if you're interested in helping towards making the repository better!
 
 ## Authors
 
