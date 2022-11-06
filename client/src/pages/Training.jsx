@@ -52,11 +52,7 @@ const dummyData = [
 const Training = () => {
   return (
     <div
-      className="w-full h-full"
-      style={{
-        backgroundImage: `url(${wallpaper7})`,
-        backgroundSize: "cover",
-      }}
+      className="w-full h-full max-w-7xl mx-auto p-2 items-center"
     >
       <h1 className="w-full text-center text-3xl font-bold font-sans px-[3rem] py-[2rem]">
         Best Practices for Medical Waste Handling
