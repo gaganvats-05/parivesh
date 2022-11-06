@@ -47,9 +47,9 @@ const Dashboard = () => {
         }
     }, [email]);
 
-    // if (!isAuthenticated) {
-    //     navigate("/");
-    // }
+    if (!isAuthenticated) {
+        navigate("/");
+    }
 
     return (
         <>
@@ -119,51 +119,55 @@ const Dashboard = () => {
                         </button>
                     </div>
 
-                    <div className="flex flex-row items-center justify-evenly flex-wrap mt-8 p-4">
-                        {products.map((product) => {
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 z-10 w-full h-full max-w-7xl mx-auto p-2 my-8">
+                        {products?.map((product, index) => {
                             return (
                                 <div
-                                    className="flex flex-wrap justify-center rounded-[1rem] overflow-hidden max-w-[200px] min-w-[150px] w-full h-full my-4"
-                                    key={product._id}
+                                    key={index}
+                                    className="flex flex-col mx-auto max-w-[350px] w-full min-h-[300px] h-full col-span-1 bg-[#f5f5f5] rounded-2xl"
+                                    style={{
+                                        boxShadow:
+                                            "rgba(149, 157, 165, 0.4) 0px 8px 24px",
+                                    }}
                                 >
-                                    <div className="max-w-sm w-full">
-                                        <img
-                                            className="rounded-t-[1rem] max-h-[15rem] object-contain backdrop-blur-lg bg-[rgba(0,0,0,0.3)]"
-                                            src={product.image_url}
-                                            alt=" "
-                                            height={1080}
-                                            width={1920}
-                                        />
-                                        <div className="p-6 text-center backdrop-blue-lg transparent bg-[rgba(225,225,225,0.2)]">
-                                            <h5 className="text-white text-xl font-medium mb-2">
-                                                {product.name}
-                                            </h5>
-                                            <div className="ctas w-full flex justify-evenly">
-                                                <NavLink
-                                                    to={`/product/${product._id}`}
-                                                    className=""
-                                                >
-                                                    <button
-                                                        type="button"
-                                                        className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                                                    >
-                                                        View
-                                                    </button>
-                                                </NavLink>
+                                    <img
+                                        src={product?.image_url}
+                                        alt=" "
+                                        className="object-cover h-[250px] w-full"
+                                        style={{
+                                            borderTopLeftRadius: "16px",
+                                            borderTopRightRadius: "16px",
+                                        }}
+                                    />
+
+                                    <div className="p-6 text-center backdrop-blue-lg transparent bg-[rgba(225,225,225,0.2)]">
+                                        <h5 className="text-black text-xl font-medium mb-2">
+                                            {products?.name}
+                                        </h5>
+                                        <div className="ctas w-full flex justify-evenly">
+                                            <NavLink
+                                                to={`/product/${product._id}`}
+                                                className=""
+                                            >
                                                 <button
-                                                    onClick={() => {
-                                                        setValue(
-                                                            `https://void-hacks.vercel.app/product/${product._id}`
-                                                        );
-                                                        setQRModal(true);
-                                                    }}
                                                     type="button"
-                                                    class="inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out"
+                                                    className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                                                 >
-                                                    View QR
+                                                    View
                                                 </button>
-                                                {/* <QRCodeSVG  /> */}
-                                            </div>
+                                            </NavLink>
+                                            <button
+                                                onClick={() => {
+                                                    setValue();
+                                                    `https://parivesh.vercel.app/product/${product._id}`;
+                                                    setQRModal(true);
+                                                }}
+                                                type="button"
+                                                className="inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out cursor-pointer"
+                                            >
+                                                View QR
+                                            </button>
+                                            {/* <QRCodeSVG  /> */}
                                         </div>
                                     </div>
                                 </div>
