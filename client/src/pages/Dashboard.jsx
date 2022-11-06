@@ -119,7 +119,7 @@ const Dashboard = () => {
           </h1>
 
           <div className="flex flex-col items-center justify-center z-50 p-2">
-          <input
+            <input
               type="text"
               onChange={(event) => handleSearch(event)}
               className="flex max-w-sm w-full mx-auto p-2 border-2 rounded-md mb-4 mt-2 bg-[#f5f5f5] outline-slate-400"
@@ -169,7 +169,9 @@ const Dashboard = () => {
                       <button
                         onClick={() => {
                           setValue();
-                          `https://parivesh.vercel.app/product/${product._id}`;
+                          `${import.meta.env.VITE_BACKEND_BASE}/product/${
+                            product._id
+                          }`;
                           setQRModal(true);
                         }}
                         type="button"
