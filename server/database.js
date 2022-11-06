@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 
 function DbConnect() {
-  const URL =
-    "mongodb+srv://voidhack:voidhack@cluster0.rlwmp.mongodb.net/voidhack?retryWrites=true&w=majority";
+  const URL = process.env.MONGO_URI;
 
   // Database connection
   mongoose.connect(URL, {
